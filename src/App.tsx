@@ -1,29 +1,33 @@
-import Cards from './components/Cards'
-import Navbar from './components/Navbar'
-import SideBar from './components/Sidebar'
+import { createSignal } from "solid-js";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import CategoryBar from "./components/CategoryBar";
+import VideoGrid from "./components/VideoGrid";
+import ShortsRow from "./components/ShortsRow";
 
-function App() {
+export default function App() {
+  const [sidebarOpen, setSidebarOpen] = createSignal(true);
 
   return (
-    <>
+    <div class="bg-[#0f0f0f] text-white min-h-screen overflow-x-hidden">
+      <Navbar onMenuClick={() => setSidebarOpen(!sidebarOpen())} />
 
-      <div class="">
-      <Navbar />
+      <div class="flex">
+        <Sidebar open={sidebarOpen()} />
+
+        <main
+          class={`
+            flex-1
+            min-w-0
+            transition-all
+            ${sidebarOpen() ? "ml-60" : "ml-16"}
+          `}
+        >
+          <CategoryBar />
+          <VideoGrid />
+          <ShortsRow />
+        </main>
       </div>
-
-      <div class="flex flex-1">
-      <SideBar />
-
-      <main class="flex-1 p-6 overflow-y-auto">
-        <Cards />
-
-      </main>
-
-      </div>
-
-
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
