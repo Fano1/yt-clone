@@ -12,7 +12,7 @@ export default function App() {
     <div class="bg-[#0f0f0f] text-white min-h-screen overflow-x-hidden">
       <Navbar onMenuClick={() => setSidebarOpen(!sidebarOpen())} />
 
-      <div class="flex">
+      <div class="flex pt-14">
         <Sidebar open={sidebarOpen()} />
 
         <main
@@ -23,7 +23,9 @@ export default function App() {
             ${sidebarOpen() ? "ml-60" : "ml-16"}
           `}
         >
+          {/* CATEGORY BAR */}
           <CategoryBar />
+
           <VideoGrid />
           <ShortsRow />
         </main>

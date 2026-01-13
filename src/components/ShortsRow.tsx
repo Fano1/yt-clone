@@ -2,8 +2,9 @@ import { onMount, For } from "solid-js";
 import { useDragScroll } from "../utils/useDragScroll";
 
 const titles = [
-  "This changed everything 😳",
-  "Bro really did that 💀",
+  "This changed everything",
+  "Sakar dai is watching. Smile ;)",
+  "Bro really did that",
   "I tried this at 3AM",
   "You won’t believe this works",
   "Why nobody talks about this",
@@ -35,14 +36,12 @@ function ShortsCard() {
         active:scale-[0.97]
       "
     >
-      {/* Thumbnail */}
       <img
         src={img}
         class="absolute inset-0 w-full h-full object-cover"
         draggable={false}
       />
 
-      {/* Gradient */}
       <div
         class="
           absolute inset-0
@@ -51,14 +50,12 @@ function ShortsCard() {
         "
       />
 
-      {/* Title */}
       <div class="absolute bottom-10 left-2 right-2">
         <p class="text-xs font-semibold leading-snug line-clamp-2">
           {title}
         </p>
       </div>
 
-      {/* Mr. Miyagi */}
       <div class="absolute bottom-2 left-2 right-2">
         <p class="text-[10px] text-[#cccccc] italic">
           — Mr. Miyagi
